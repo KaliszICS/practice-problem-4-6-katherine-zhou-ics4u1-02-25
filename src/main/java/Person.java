@@ -6,10 +6,10 @@ public class Person{
     private int birthYear;
     private String ssn;
     private int numberOfSiblings = 0;
-    private Person[] siblings;
+    private Person[] siblings = new Person[0];
 
     public Person(String firstName, String lastName, int birthDay, int birthMonth, int birthYear, String ssn){
-        this.fistName = firstName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.birthDay = birthDay;
         this.birthMonth = birthMonth;
@@ -36,10 +36,16 @@ public class Person{
         return this.birthDay + "/"+ this.birthMonth+"/" + this.birthYear;
     }
 
-    public void addSiblings( Person siblings){
-        Person[] newSiblings = this.siblings[];
+    public void addSibling (Person sibling){
+        Person[] newSiblings = new Person[this.numberOfSiblings + 1];
+        for (int i = 0; i<this.numberOfSiblings; i++){
+            newSiblings[i]=this.siblings[i];
+        }
+        
+        newSiblings[this.numberOfSiblings] = sibling;
         this.siblings = newSiblings;
         this.numberOfSiblings++;
+
     }
 
     public Person[] getSiblings(){
